@@ -5,7 +5,7 @@ module alu (
     input wire       CLK,
     input wire       en,
     input wire [7:0] A,
-    inout wire [7:0] B,
+    input wire [7:0] B,
     input wire [2:0] OP,
     // output
     output reg [15:0] result
