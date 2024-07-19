@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1721429082" />
-    <testcase name="alu_test" classname="alu_tb" file="/home/ahmed/Verification/ALU/alu_tb.py" lineno="56" time="0.05306863784790039" sim_time_ns="203.001" ratio_time="3825.2536381623286" />
-  </testsuite>
-</testsuites>
