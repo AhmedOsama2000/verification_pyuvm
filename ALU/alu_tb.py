@@ -1,8 +1,7 @@
 # Importing the modules
-from bitstring import BitArray
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import RisingEdge, FallingEdge
+from cocotb.triggers import FallingEdge, ClockCycles
 import random  # for randomize testing
 
 correct_cases = 0
@@ -80,6 +79,10 @@ async def alu_test(dut):
         result = get_int(dut.result)
         scoreboard(a_i, b_i, op_i, result)
         
+    await FallingEdge(dut.CLK)
+    dut.en.value = 0
+
+    await ClockCycles(dut.CLK, 5)
 
     print(f"Correct Cases: {correct_cases}")
     print(f"Inorrect Cases: {incorrect_cases}")
