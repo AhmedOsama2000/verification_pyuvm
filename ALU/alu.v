@@ -8,7 +8,8 @@ module alu (
     input wire [7:0] B,
     input wire [2:0] OP,
     // output
-    output reg [15:0] result
+    output reg [15:0] result,
+    output reg [15:0] done
 );
 
 localparam ADD     = 3'b000;
@@ -22,8 +23,10 @@ localparam NOTA    = 3'b101;
 always @(posedge CLK) begin
     if (!rst_n) begin
         result <= 16'b0;
+        done   <= 1'b0;
     end
     else if (en) begin
+        done <= 1'b1;
         if (OP == ADD) begin
             result <= A + B;
         end
@@ -42,6 +45,9 @@ always @(posedge CLK) begin
         else if (OP == NOTA) begin
             result <= {{8{1'b0}},~A};
         end
+    end
+    else begin
+        done <= 1'b0;
     end
 end
 
