@@ -9,7 +9,7 @@ module alu (
     input wire [2:0] OP,
     // output
     output reg [15:0] result,
-    output reg [15:0] done
+    output reg        done
 );
 
 localparam ADD     = 3'b000;
